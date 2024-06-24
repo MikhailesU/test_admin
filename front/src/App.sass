@@ -1,0 +1,294 @@
+@mixin isline($direct)
+  display: flex
+  flex-direction: $direct
+@mixin clear_margin()
+  margin-block-start: 0em
+  margin-block-end: 0em
+  margin-inline-start: 0px
+  margin-inline-end: 0px
+  padding-inline-start: 0px
+$color_gray: #f9f9f9
+$color_dark_blue: #1d63a8
+$color_light_blue: #2580dd
+  
+  
+td, th
+  border: 1px solid rgb(0, 0, 0)
+  padding: 15px
+  text-align: center
+  color: rgb(0, 0, 0)
+th 
+  background-color: rgba(255, 255, 255, 0.726)
+
+
+tbody tr:nth-child(odd) 
+  background-color: $color_gray
+  &:nth-child(even) 
+    background-color: #ffffff
+
+.body
+  background: $color_gray
+  padding: 1%
+
+table 
+  border-collapse: collapse
+  width: 100%
+  margin-bottom: 100px
+
+.buttons
+  position: fixed
+  @include isline(row)
+  justify-content: start
+  bottom: 0
+  width: 100%
+  padding: 10px
+  background-color: #ffffff
+  z-index: 9999
+  color: #000000
+  &>div, p
+    margin: 5px
+    display: flex
+    align-items: center
+  p
+    font-size: 32px
+  &>div>li
+    border: 1px solid gray
+    list-style-type: none
+    &:hover
+      background-color: $color_light_blue
+      color: white
+    &:focus
+      background-color: $color_dark_blue
+      outline: none
+      color:#000
+
+.container
+  @include isline(row)
+
+ul
+  list-style-type: none
+  text-align: center
+  unicode-bidi: isolate
+  @include clear_margin()
+
+li
+  padding: 10px
+  list-style-type: none
+
+button, 
+li, 
+.panels_element, 
+.panels_inside_element, 
+.main_panels_inside_element, 
+.active_panels_element, 
+.dropers2, 
+.dropers_active,
+.logOut_button
+  cursor: pointer
+p
+  @include clear_margin()
+
+.drop:hover, .drop_filter:hover
+  background-color:#9b9b9b
+
+.dropers2, .dropers_active, .dropers
+  top: 0
+  right: 0
+  position: relative
+  font-size: 16px
+  margin-right: 3px
+  @include isline(column)
+  align-items: center
+  padding: 15px
+
+.dropers 
+  color: #00b409
+  background-color: #ffffff
+
+.dropers2, .dropers_active
+  background-color: $color_gray
+
+.table_container
+  background-color: #ffffff
+  padding: 1%
+
+
+.dropdown
+  display: flex
+  background-color: #ffffffee
+  color: black
+  position: absolute
+  top: 100%
+  z-index: 9998
+
+.drop
+  @include isline(row)
+  justify-content: start
+
+.Action, .panel_drop
+  @include isline(column)
+  align-items: center
+  position: relative
+  &>button
+    @include isline(row)
+    padding: 7px
+    border: 1px solid $color_gray
+
+.form
+  position: fixed
+  top: 10%
+  right: 25%
+  @include isline(column)
+  align-items: center
+  justify-content: space-around 
+  height: 80%
+  width: 50%
+  background-color: $color_gray
+  border-radius: 5px
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3)
+
+input[type='submit']
+  position: absolute
+  bottom: 5%
+  transform: scale(1.5)
+
+.back
+  position: relative
+  top: 10px
+  left: 100%
+  transform: scale(1.5)
+
+.filter
+  background-color: #ffffff
+  display: grid
+  grid-template-columns: minmax(100px, 200px) 200px 200px
+  grid-auto-rows: 40px
+  &>div
+    display: block
+
+.true_or_false
+  width: 30px
+  height: auto
+  position: absolute
+  top: 0
+  left: 0
+
+.bol_container
+  padding: 0%
+  position: relative
+
+.sidebar
+  position: fixed
+  top: 0
+  left: 0
+  height: 100%
+  width: 250px
+  background: $color_light_blue
+  &>img
+    width: 250px
+    height: 70px
+
+nav 
+  margin-top: 50px
+
+@mixin forPanel()
+  padding: 10px
+  color: #fff
+  text-decoration: none
+  width: 92%
+  @include isline(row)
+
+.panels_element
+  @include forPanel()
+  justify-content: space-between
+  &:hover
+    background: $color_dark_blue
+
+.active_panels_element
+  background: $color_dark_blue
+  @include forPanel()
+  
+.panels_inside_element, .main_panels_inside_element
+  @include forPanel()
+  background-color: #5a5a5a
+  width: 190px
+  padding-left: 50px
+  &:hover
+    background-color: #a8a8a8
+
+.main_panels_inside_element
+  background-color: #8d8d8d
+
+.main_container
+  position: absolute
+  display: flex
+
+.content 
+  @include isline(row)
+  padding-left: 240px
+
+
+.panel_image
+  width: 25px
+  height: 25px
+
+.name_container
+  @include isline(row)
+
+.time
+  padding-left: 280px
+  padding-top: 13px
+  padding-bottom: 13px
+  @include isline(row)
+  &>input
+    height: 30px
+    margin-left: 35px
+    margin-right: 35px
+  
+
+.atten
+  @include isline(column)
+  justify-content: center
+  align-items: center
+  position: fixed
+  top: 0 
+  left: 0 
+  bottom: 0 
+  right: 0
+  margin: auto
+  z-index: 9000 
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.5) 
+  background-color: rgb(98, 164, 177)
+  width: 50%
+  height: 50%
+  &>div
+    height:  50%
+    width: 50%
+    display: flex
+    align-items: end
+    justify-content: space-between
+    &>button 
+    width: 20%
+    height: 20%
+
+.logOut_button
+  @include isline(row)
+  position: absolute
+  right: 0
+  margin-top: 35
+
+.filter_head
+  background-color: $color_gray
+  padding: 8px
+  @include isline(row)
+  margin-right: 15px
+  border: 2px solid #ececec
+  border-radius: 10%
+  &p
+    cursor: 'pointer' 
+    font-size: 10px 
+    margin: 5px
+
+.container_for_filters
+  background-color: white
+  width: 100%
